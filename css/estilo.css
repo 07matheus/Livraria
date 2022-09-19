@@ -87,9 +87,6 @@ table, tr, td{
 table{
 	background-color: #ddd;
 }
-form fieldset{
-	border: none;
-}
 form legend{
 	text-transform: uppercase;
 	font-size: 1.2em;
@@ -100,12 +97,7 @@ form legend{
 form label, form input:not([type=checkbox]), form select, form textarea{
 	width: 100%;
 }
-form div{
-	width: 48%;
-	margin: 0 1%;
-	height: 180px;
-	float: left;
-}
+
 button{
 	padding: 10px 20px;
 	background-color: blue;
@@ -309,3 +301,55 @@ button{
 }
 
 /* PRODUTOS */
+
+
+/* SOBRE */
+.sobre {
+	width: 90%;
+	padding: 10px 25px;
+}
+.sobre p {
+	text-indent: 20px;
+	margin-bottom: 5px;
+}
+.sobre p {
+	padding: 0 15px;
+}
+.titulo {
+	text-align: center;
+	padding: 20px 0;
+}
+@media (max-width: 767px) {
+	.sobre {
+		width: 90%;
+		margin-top: 70px;
+	}
+}
+
+/* SOBRE */
+
+/* CONTATO */
+form {
+	padding: 20px 10px;
+}
+form fieldset {
+	border: none;
+	display: grid;
+	grid-template-columns: 50% 50%;
+}
+form fieldset > div {
+	padding: 10px;
+}
+@media (max-width: 767px) {
+	form fieldset {
+		display: block;
+	}
+	.contato {
+		margin-top: 80px;
+	}
+	form legend {
+		text-align: center;
+		padding-bottom: 15px;
+	}
+}
+/* CONTATO */
