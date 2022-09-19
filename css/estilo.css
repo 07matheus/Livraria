@@ -1,19 +1,30 @@
 /* Import font from google */
 @import url(http://fonts.googleapis.com/css?family=Open+Sans:400,300,700);
 
-
+* {
+	margin: 0;
+	padding: 0;
+}
 body{
 	background-color: rgb(200,200,200);
 	font-family: sans-serif;
-	margin: 0;
-	padding: 0;
+}
+main {
+	max-width: 1280px;
+	margin: 0 auto;
 }
 h1,h2,h3,h4,h5,h6{
 	font-family: 'Open Sans', sans-serif;
 }
 #topo, #menu,.destaques, section{
-	width: 900px;
+	width: 100%;
 	margin:0 auto;
+}
+#menu {
+	padding: 0 35px;
+}
+#menu ul li {
+	margin-right: 10px;
 }
 #topo h1{
 	animation:introducao 2s linear infinite alternate;
@@ -37,9 +48,20 @@ h1,h2,h3,h4,h5,h6{
 #menu li{
 	display:inline;
 }
+#menu > .icone {
+	display: none;
+}
+.destaques .titulo-destaques {
+	color: blue;
+	text-align: center;
+}
+.destaques .livros {
+	padding: 0 30px;
+	display: flex;
+	flex-wrap: wrap;
+}
 .destaques li{
-	width: 50%;
-	float: left;
+	width: 25%;
 	text-align: center;
 	list-style: none;
 	padding: 20px 0;
@@ -93,14 +115,197 @@ button{
 	-moz-border-radius: 5px;
 	border-radius: 5px;
 }
-#rodape{
+#rodape {
 	width: 100%;
 	background-color: #333;
 	color: #ccc;
 	float: left;
 	text-align: center;
+	padding: 20px 0;
 }
 #rodape li {
 	display: inline;
 }
+#rodape > ul {
+	padding-bottom: 10px;
+}
+#rodape > ul > li > a {
+	font-size: 18px;
+	text-decoration: none;
+	color: #fff;
+}
+#rodape > ul > li > a:hover {
+	border-bottom: 1px solid #fff;
+}
 
+@media(min-width: 768px) and (max-width: 1279px) {
+	.destaques li {
+		width: 50%;
+	}
+}
+
+@media(max-width: 767px) {
+	main > .destaques {
+		margin-top: 80px;
+	}
+	.travar {
+		overflow: hidden;
+	}
+	#topo {
+		display: none;
+	}
+	#menu {
+		height: 70px;
+		position: fixed;
+		top: 0;
+		background: black;
+		z-index: 99999;
+		display: grid;
+		grid-template-columns: 15% auto;
+		transition: height 1s;
+		padding: 0;
+	}
+	#menu.aberto {
+		height: 100vh;
+	}
+	#menu > .icone {
+		display: block;
+		width: 60px;
+		padding: 5px;
+		cursor: pointer;
+	}
+	#menu > .icone > img {
+		width: 100%;
+	}
+	#menu ul {
+		display: none;
+		padding: 0 20px;
+	}
+	#menu ul li {
+		display: block;
+		width: 100%;
+	}
+	.destaques li {
+		width: 100%;
+	}
+	.itens-menu {
+		height: 90%;
+		opacity: 0;
+		overflow-y: scroll;
+	}
+	#menu.aberto .itens-menu {
+		display: block;
+		opacity: 1;
+	}
+	.itens-menu .item {
+		margin: 15px 0;
+	}
+	.itens-menu .item > a {
+		font-size: 24px;
+		text-decoration: none;
+		color: #fff;
+	}
+	#rodape > ul > li {
+		display: block;
+		width: 100%;
+		margin: 10px 0;
+	}
+}
+
+/* PRODUTOS */
+.produtos {
+	padding: 30px 0;
+}
+.produtos > table {
+	margin: 0 auto;
+}
+.tabela {
+	padding: 10px 20px;
+}
+.tabela .conteudo-tabela {
+	border: 1px solid #000;
+	padding: 5px;
+	background-color: #ddd;
+}
+.tabela .coluna {
+	display: grid;
+	grid-template-columns: 6% 50% 25% 19%;
+}
+.tabela .thead {
+	font-weight: bold;
+	text-align: center;
+}
+.tabela .tfooter {
+	padding: 5px;
+	border: 1px solid #000;
+	text-align: center;
+	font-weight: bold;
+}
+.tbody .linha.coluna {
+	margin-bottom: 2px;
+}
+.tbody .item {
+	display: flex;
+	align-items: center;
+}
+@media (min-width: 768px) {
+	.tabela .thead .item.mobile {
+		display: none;
+	}
+	.tabela .tbody .linha .item .titulo {
+		display: none;
+	}
+	.tbody .item {
+		padding: 5px;
+		border: 1px solid #000;
+		margin: 1px;
+	}
+}
+@media(max-width: 767px) {
+	.produtos {
+		margin-top: 80px;
+		padding: 10px 0;
+	}
+	.tabela .thead {
+		display: block;
+	}
+	.tabela .thead .item.mobile {
+		font-size: 24px;
+		margin-bottom: 10px;
+	}
+	.tabela .thead .item:not(.mobile) {
+		display: none;
+	}
+	.tabela .tbody .linha {
+		border: 1px solid #000;
+		padding: 3px;
+		display: flex;
+		flex-wrap: wrap;
+	}
+	.tabela .tbody .linha .item .titulo {
+		display: block;
+		font-weight: bold;
+		margin-right: 3px;
+	}
+	.tabela .tbody .linha .item {
+		width: 50%;
+		display: flex;
+		margin-bottom: 3px;
+	}
+}
+@media(max-width: 465px) {
+	.tabela {
+		padding: 10px;
+	}
+	.tabela .tbody .linha {
+		display: block;
+	}
+	.tabela .tbody .linha .item {
+		width: 100%;
+	}
+	.tabela .tbody .linha .item .titulo {
+		width: 60px;
+	}
+}
+
+/* PRODUTOS */
